@@ -77,6 +77,18 @@ li {
   margin: 0px;
   font-family:monospace;
   font-size:15px;
+  animation: floatText 30s infinite linear;
+  padding-left: 100%; /*Initial offset*/
+}
+
+#news:hover {
+  animation-play-state: paused;
+}
+
+@keyframes floatText {
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 img.icon {

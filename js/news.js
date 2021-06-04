@@ -88,26 +88,13 @@ function newNews() {
   } else {
     message = messages[Math.floor(Math.random()*messages.length)] // otherwise we pick a random message from the list
   }
-  // then we add some amount of spaces
-  var bar_size = Math.ceil(document.getElementById("news_bar").offsetWidth / 8.2)
-  news_p.innerHTML = " ".repeat(bar_size+5)
   // then we add the news
-  news_p.innerHTML += message
+  news_p.innerHTML = message
   runNews()
 }
 
 function runNews() {
-  if (buffer) {
-    news_p.style.left = 0
-    buffer = false
-  } else {
-    news_p.style.left = 4.2
-    news_p.innerHTML = news_p.innerHTML.substring(1)
-    buffer = true
-  }
-  if (news_p.innerHTML != "") {
-    setTimeout(runNews, 30)
-    return
-  }
-  newNews()
+  setInterval(() => {
+    newNews();
+  }, 32000);
 }
